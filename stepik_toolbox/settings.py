@@ -25,7 +25,7 @@ SECRET_KEY = '=%c1-0pj=3%ra905&43mzvh)i%vd*b(!q%@-@@_rmb2_cy)$a2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['stepiktoolbox.herokuapp.com']
 
 
 # Application definition
