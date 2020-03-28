@@ -3,7 +3,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=%c1-0pj=3%ra905&43mzvh)i%vd*b(!q%@-@@_rmb2_cy)$a2'
 DEBUG = True
-ALLOWED_HOSTS = ['stepiktoolbox.herokuapp.com']
+#ALLOWED_HOSTS = ['stepiktoolbox.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
