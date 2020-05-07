@@ -15,7 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+from heroku_app.views import api_view, MyView, TCatView, LCatView, DetailCatView, template_cat
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('api/', api_view),
+    path('api/', MyView.as_view()),
+    path('t_cat/', template_cat),
+    path('tcat/', TCatView.as_view()),
+    #path('lcat/', LCatView.as_view()),
+    url(r'^lcat/([\w-]+)/$', LCatView.as_view()),
+    path('dcat/<int:pk>/', DetailCatView.as_view()),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

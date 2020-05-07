@@ -1,7 +1,7 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = '=%c1-0pj=3%ra905&43mzvh)i%vd*b(!q%@-@@_rmb2_cy)$a2'
+SECRET_KEY = 'very_secret_key'
 DEBUG = True
 #ALLOWED_HOSTS = ['stepiktoolbox.herokuapp.com']
 ALLOWED_HOSTS = ['*']
@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'heroku_app',
 ]
 
 MIDDLEWARE = [
@@ -30,7 +31,7 @@ ROOT_URLCONF = 'stepik_toolbox.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,3 +76,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/nobus/media'
