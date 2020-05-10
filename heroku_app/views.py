@@ -38,6 +38,12 @@ def api_view(request):
     return JsonResponse({})
 
 from django.views import View
+from django.http import HttpResponse
+
+class OtherTestView(View):
+    def get(self, request):
+        return HttpResponse('Hello world!')
+
 
 class MyView(View):
     def get(self, request):
