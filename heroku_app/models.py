@@ -33,3 +33,16 @@ class TheCat(models.Model):
         storage.delete(path)"""
         super(TheCat, self).delete(*args,**kwargs)
 
+
+class Mushroom(models.Model):
+    name = models.CharField(max_length=13)
+    size = models.PositiveIntegerField()
+    poisonousness = models.BooleanField()
+
+
+class Postcard(models.Model):
+    address = models.CharField(max_length=128)
+    author = models.CharField(max_length=128)
+    compliment = models.CharField(max_length=128)
+    date_of_delivery = models.DateField(auto_now=True)
+    email = models.EmailField(max_length=254)
