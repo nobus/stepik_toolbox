@@ -20,7 +20,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
-from heroku_app.views import api_view, MyView, TCatView, LCatView, DetailCatView, template_cat
+from heroku_app.views import api_view, MyView, TCatView, LCatView, DetailCatView, template_cat, postcard_view, thanks_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +31,9 @@ urlpatterns = [
     #path('lcat/', LCatView.as_view()),
     url(r'^lcat/([\w-]+)/$', LCatView.as_view()),
     path('dcat/<int:pk>/', DetailCatView.as_view()),
+    path('pcard/', postcard_view),
+    path('thanks/', thanks_view),
+
 ]
 
 if settings.DEBUG:
