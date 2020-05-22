@@ -112,3 +112,32 @@ class DetailCatView(DetailView):
     model = TheCat
 
     queryset = TheCat.objects.all()
+
+# for crispy
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
+from .forms import PostcardForm
+
+def postcard_view(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        postcard_form = PostcardForm(request.POST)
+        # check whether it's valid:
+        if postcard_form.is_valid():
+            # process the data in form.cleaned_data as required
+            # {'address': 'ул. Наличная, д. 36, к. 4, кв. 139', 'author': 'mee', 'compliment': 'qqq', 'date_of_delivery': datetime.date(2020, 1, 1), 'email': 'meganobus@gmail.com'}
+            data = postcard_form.cleaned_data  # data is an usual dictionary
+            print(data)
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        postcard_form = PostcardForm()
+
+    return render(request, 'heroku_app/postcard.html', {'postcard_form': postcard_form})
+
+def thanks_view(request):
+    return HttpResponse('Thanks!')
