@@ -5,3 +5,10 @@
         <li>{{ cat.name }}</li>
     {% endfor %}
 </ul>
+
+<h2>PATH:</h2>
+{{ request.path }}
+
+<h2>IF:</h2>
+<a href="/tcat/" class="{% if request.path == "/tcat/" %}active{% endif %}">TCAT</a>
+
