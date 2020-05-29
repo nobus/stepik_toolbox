@@ -1,9 +1,6 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
 {% load crispy_forms_tags %}
 
-{% crispy postcard_form  %}
+{% crispy form 'bootstrap3' %}
 
-<!--<form method="post" class="uniForm">{% csrf_token %}
-  <table>{{ postcard_form.as_table }}</table>
-  {{ postcard_form|crispy }}
-  <button type="submit">Submit</button>
-</form>-->

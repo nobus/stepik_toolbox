@@ -80,3 +80,6 @@ STATIC_ROOT = 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/nobus/media'
+
+#CRISPY_TEMPLATE_PACK = 'uni_form'
+#CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -1,8 +1,8 @@
 from django import forms
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
-from crispy_forms.bootstrap import FormActions, PrependedText, Field
+from crispy_forms.layout import Layout, Fieldset, Submit, Reset, Field
+from crispy_forms.bootstrap import PrependedText, AppendedText, FormActions
 
 
 class PostcardForm(forms.Form):
@@ -10,28 +10,31 @@ class PostcardForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
 
+        self.helper.form_method = 'post'
+
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-lg-2'
+        self.helper.field_class = 'col-lg-4'
+
         self.helper.layout = Layout(
             Fieldset(
-                'Postcard',
-                #'address',
-                Field('address', css_class="extra"),
+                'ADDRESSES'
+                'N2',
+                AppendedText('address', '&#9993;', placeholder="почтовый адрес"),
+                PrependedText('email', '@', placeholder="email"),
+                AppendedText('date_of_delivery', '', placeholder='дата доставки'),
+            ),
+            Fieldset(
+                'AUTHOR',
                 'author',
-                'compliment',
-                'date_of_delivery',
-                #'email',
-                PrependedText('email', '@', placeholder="email@doma.in")
+                'compli'
+                'ment',
             ),
             FormActions(
-                Submit('submit', 'Submit', css_class='button white')
+                Submit('submit', 'Submit'),
+                Reset('reset', 'Reset'),
             )
         )
-
-        self.helper.form_id = 'id-exampleForm'
-        self.helper.form_class = 'blueForms'
-        self.helper.form_method = 'post'
-        self.helper.form_action = '/thanks/'
-
-        #self.helper.add_input(Submit('submit', 'Submit'))
 
 
     address = forms.CharField(label='Destination Address')

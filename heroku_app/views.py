@@ -137,7 +137,7 @@ def postcard_view(request):
     else:
         postcard_form = PostcardForm()
 
-    return render(request, 'heroku_app/postcard.html', {'postcard_form': postcard_form})
+    return render(request, 'heroku_app/postcard.html', {'form': postcard_form})
 
 def thanks_view(request):
     return HttpResponse('Thanks!')
