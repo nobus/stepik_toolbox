@@ -1,0 +1,7 @@
+{% if summary %}
+    summary
+{% else %}
+    <a href={% url 'time-loop' year|add:"-1" %}>{{ year|add:"-1" }}</a></br>
+    <a href={% url 'time-loop' year|add:"1" %}>{{ year|add:"1" }}</a></br>
+    <a href={% url 'imagestore-summary' year%}>summary</a>
+{% endif %}

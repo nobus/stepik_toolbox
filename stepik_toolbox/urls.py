@@ -20,7 +20,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
-from heroku_app.views import api_view, MyView, TCatView, LCatView, DetailCatView, template_cat, postcard_view, thanks_view
+from heroku_app.views import api_view, MyView, TCatView, LCatView, DetailCatView, template_cat, postcard_view, thanks_view, myview, myview2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +33,12 @@ urlpatterns = [
     path('dcat/<int:pk>/', DetailCatView.as_view()),
     path('pcard/', postcard_view),
     path('thanks/', thanks_view),
+
+    url(r'^imagestore/(\d{4})/$', myview, name='time-loop'),
+    url(r'^imagestore-summary/(\d{4})/$', myview, {'summary': True}, name='imagestore-summary'),
+
+    #url(r'^imagestore/(\d{4})/$', myview2),
+    #url(r'^imagestore-summary/(\d{4})/$', myview2, {'summary': True}),
 
 ]
 

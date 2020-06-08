@@ -141,3 +141,22 @@ def postcard_view(request):
 
 def thanks_view(request):
     return HttpResponse('Thanks!')
+
+# for naming urls
+from django.urls import reverse
+
+def myview(request, year, **kwargs):
+    print(kwargs)
+    year = int(year)
+    summary = kwargs.get('summary', False)
+
+    if year < 1900:
+        return HttpResponseRedirect(reverse('time-loop', args=[2000]))
+    elif year > 2000:
+        return HttpResponseRedirect(reverse('time-loop', args=[1900]))
+    else:
+        return render(request, 'heroku_app/named.html', {'year': year, 'summary': summary})
+
+def myview2(request, year):
+    return render(request, 'heroku_app/named2.html')
+
